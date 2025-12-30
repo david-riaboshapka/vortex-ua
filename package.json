@@ -1,0 +1,25 @@
+{
+  "name": "agency",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "framer-motion": "^12.23.26",
+    "next": "^15.5.9",
+    "next-auth": "^4.24.13",
+    "pg": "^8.16.3",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "zustand": "^5.0.9"
+  },
+  "devDependencies": {
+    "eslint": "8.57.0",
+    "eslint-config-next": "15.2.3"
+  }
+}
