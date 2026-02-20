@@ -19,22 +19,55 @@ export async function CreateReviews(formData) {
 
   revalidatePath("/admin");
 }
+// export async function UpdateReviews(formData) {
+//   const id = formData.get('id');
+//   const author_name = formData.get('author_name');
+//   const rating = Number(formData.get('rating'));
+//   const text = formData.get('text');
+//   const is_public = formData.get('is_public');
+
+//   await db.query(
+//     `UPDATE portfolio_reviews
+//      SET author_name = $2,
+//          rating = $3,
+//          text = $4,
+//          is_public = $5
+//      WHERE id = $1`,
+//     [id, author_name, rating, text, is_public]
+//   );
+
+//   revalidatePath("/admin");
+// }
 export async function UpdateReviews(formData) {
   const id = formData.get('id');
   const author_name = formData.get('author_name');
-  const rating = Number(formData.get('rating'));
   const text = formData.get('text');
   const is_public = formData.get('is_public') === 'on';
 
-  await db.query(
-    `UPDATE portfolio_reviews
-     SET author_name = $2,
-         rating = $3,
-         text = $4,
-         is_public = $5
-     WHERE id = $1`,
-    [id, author_name, rating, text, is_public]
-  );
+  // 1. Принудительно превращаем в целое число
+  let rating = parseInt(formData.get('rating'), 10);
+
+  // 2. Валидация: если рейтинг не число или вне диапазона 1-5
+  if (isNaN(rating) || rating < 1) {
+    rating = 1; // Минимальное значение по умолчанию
+  } else if (rating > 5) {
+    rating = 5; // Максимальное значение по умолчанию
+  }
+
+  try {
+    await db.query(
+      `UPDATE portfolio_reviews
+       SET author_name = $2,
+           rating = $3,
+           text = $4,
+           is_public = $5
+       WHERE id = $1`,
+      [id, author_name, rating, text, is_public]
+    );
+  } catch (error) {
+    console.error("Database Error Details:", error);
+    throw error;
+  }
 
   revalidatePath("/admin");
 }

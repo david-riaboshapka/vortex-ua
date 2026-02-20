@@ -30,6 +30,7 @@ export async function UpdateProject(formData) {
     const tech_stack_raw = formData.get('tech_stack');
     const client_name = formData.get('client_name');
     const client_feedback = formData.get('client_feedback');
+    const site_url = formData.get('site_url');
 
     const tech_stack = tech_stack_raw.split(',').map(s => s.trim());
 
@@ -41,8 +42,9 @@ export async function UpdateProject(formData) {
             description = $2,
             tech_stack = $3,
             client_name = $4,
-            client_feedback = $5
-        WHERE id = $6
+            client_feedback = $5,
+            site_url = $6
+        WHERE id = $7
         `,
         [
             title,
@@ -50,6 +52,7 @@ export async function UpdateProject(formData) {
             JSON.stringify(tech_stack),
             client_name,
             client_feedback,
+            site_url,
             id,
         ]
     );

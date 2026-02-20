@@ -25,19 +25,62 @@ async function sendToTelegram(text) {
   }
 }
 
-export async function sendRequest(formData) {
+// export async function sendRequest(data) { 
+//    const session = await getServerSession(authOptions);
+   
+//    const { title, description, budget, telegram, phone, mail } = data;
+
+//   if (!title || !description) {
+//     throw new Error("Заполните обязательные поля");
+//   }
+
+//   if (session) {
+//     await db.query(
+//       `INSERT INTO project_requests (user_id, title, description, budget)
+//        VALUES ($1, $2, $3, $4)`,
+//       [session.user.id, title, description, budget || null]
+//     );
+
+//     revalidatePath("/dashboard");
+//     return;
+//   }
+
+//   if (!phone || !mail) {
+//     throw new Error("Введите телефон и email");
+//   }
+
+//   const message = `
+// 🆕 Заявка с сайта
+
+// 📌 Проект: ${title}
+// 📝 Описание: ${description}
+// 💰 Бюджет: ${budget || "не указан"}
+
+// 📞 Телефон: ${phone}
+// 📧 Email: ${mail}
+// 📧 telegram: ${telegram}
+//   `;
+
+//   await sendToTelegram(message);
+// }
+function getValue(data, key) {
+  return data instanceof FormData ? data.get(key) : data?.[key];
+}
+
+export async function sendRequest(data) {
   const session = await getServerSession(authOptions);
 
-  const title = formData.get("title");
-  const description = formData.get("description");
-  const budget = formData.get("budget");
+  // 🔹 Универсально достаём данные
+  const title = getValue(data, "title")?.toString().trim();
+  const description = getValue(data, "description")?.toString().trim();
+  const budget = getValue(data, "budget")?.toString().trim();
+  const telegram = getValue(data, "telegram")?.toString().trim();
+  const phone = getValue(data, "phone")?.toString().trim();
+  const mail = getValue(data, "mail")?.toString().trim();
 
-  const phone = formData.get("phone");
-  const mail = formData.get("mail");
-  const telegram = formData.get("telegram");
-
+  // 🔐 Минимальная серверная валидация
   if (!title || !description) {
-    throw new Error("Заполните обязательные поля");
+    return { error: "Заполните обязательные поля" };
   }
 
   // 🔹 АВТОРИЗОВАННЫЙ ПОЛЬЗОВАТЕЛЬ → БД
@@ -49,12 +92,12 @@ export async function sendRequest(formData) {
     );
 
     revalidatePath("/dashboard");
-    return;
+    return { success: true };
   }
 
-  // 🔹 ГОСТЬ → TELEGRAM BOT
+  // 🔹 ГОСТЬ → TELEGRAM
   if (!phone || !mail) {
-    throw new Error("Введите телефон и email");
+    return { error: "Введите телефон и email" };
   }
 
   const message = `
@@ -66,8 +109,9 @@ export async function sendRequest(formData) {
 
 📞 Телефон: ${phone}
 📧 Email: ${mail}
-📧 telegram: ${telegram}
-  `;
+📧 Telegram: ${telegram || "не указан"}
+`;
 
   await sendToTelegram(message);
+  return { success: true };
 }

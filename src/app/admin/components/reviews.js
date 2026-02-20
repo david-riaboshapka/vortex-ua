@@ -11,7 +11,7 @@ export default function Reviews({ reviews, projects }) {
         );
 
         return (
-          <div key={review.id} className="review-block">
+          <div key={review.id} className="review-blockRess">
             <div className="review-cont">
               <span>
                 Проект: {project ? project.title : "Не найден"}
@@ -26,7 +26,7 @@ export default function Reviews({ reviews, projects }) {
             </div>
 
             {/* UPDATE */}
-            <form action={UpdateReviews}>
+            <form className='formRess' action={UpdateReviews}>
               <input type="hidden" name="id" value={review.id} />
 
               <input
@@ -47,20 +47,24 @@ export default function Reviews({ reviews, projects }) {
                 defaultValue={review.text}
               />
 
-              <label>
+              {/* <label>
                 <input
                   type="checkbox"
                   name="is_public"
                   defaultChecked={review.is_public}
                 />
                 Опубликован
+              </label> */}
+              <label className="checkbox-container">
+                <input type="checkbox" name="is_public" defaultChecked={review.is_public} />
+                <span className="checkmark"></span>
+                <span className="checkbox-text">Опубликован</span>
               </label>
-
               <button type="submit">Сохранить</button>
             </form>
 
             {/* DELETE */}
-            <form action={DeleteReviews}>
+            <form className='formRess' action={DeleteReviews}>
               <input type="hidden" name="id" value={review.id} />
               <button type="submit">Удалить</button>
             </form>
@@ -71,7 +75,7 @@ export default function Reviews({ reviews, projects }) {
       <hr />
 
       {/* CREATE */}
-      <form action={CreateReviews}>
+      <form className='formRess reviewRess' action={CreateReviews}>
         <h3>Добавить отзыв</h3>
 
         <select name="project_id" required>

@@ -10,7 +10,7 @@ export default function Footer() {
         <span>© 2024–2025 VORTEX AGENCY</span>
 
         <div className="cont-mess">
-          <Link href='https://t.me/web_client_py'>
+          <Link href='https://t.me/web_client0'>
             <img
               src="https://vortex-agency.com.ua/wp-content/themes/vortex/assets/img/Telegram.svg"
               alt="Telegram"

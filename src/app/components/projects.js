@@ -18,7 +18,7 @@ export default function Projects_home() {
                             onMouseEnter={() => setActivePerson("davyd")}
                             onMouseLeave={() => setActivePerson("vortex")}
                         >
-                            <img src="https://vortex-agency.com.ua/wp-content/uploads/2025/08/davyd1.jpg" />
+                            <img src="/images/davyd1.jpg" alt="Davyd" />
                             <div className='person-about-img-info'>
                                 <h5>Davyd</h5>
                                 <span>[Co-Founder & Developer]</span>
@@ -30,7 +30,9 @@ export default function Projects_home() {
                             onMouseEnter={() => setActivePerson("andrey")}
                             onMouseLeave={() => setActivePerson("vortex")}
                         >
-                            <img src="https://vortex-agency.com.ua/wp-content/themes/vortex/assets/img/miria.jpg" />
+                            <img src="/images/miria.jpg" alt="Miria" />
+
+
                             <div className='person-about-img-info'>
                                 <h5>Davyd</h5>
                                 <span>[Co-Founder & Developer]</span>

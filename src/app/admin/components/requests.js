@@ -7,10 +7,10 @@ export default function Requests({ requests }) {
 
             <ul>
                 {requests.map(request => (
-                    <li key={request.id} style={{ marginTop: 10 }}>
+                    <li key={request.id} style={{ marginTop: 10 }} className='requestsRess'>
 
 
-                        <form action={UpdateRequests} style={{ display: 'inline' }}>
+                        <form className='formRess' action={UpdateRequests} style={{ display: 'inline' }}>
                               <input type="hidden" name="id" value={request.id} />
 
                             <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -31,7 +31,7 @@ export default function Requests({ requests }) {
                             <button>💾</button>
                         </form>
 
-                        <form action={DeleteRequests}>
+                        <form className='formRess' action={DeleteRequests}>
                             <input type="hidden" name="id" value={request.id} />
                             <button>❌</button>
                         </form>

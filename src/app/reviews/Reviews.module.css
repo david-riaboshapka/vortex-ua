@@ -1,0 +1,227 @@
+/* Reviews.module.css */
+
+.section {
+  padding: 0 0 4rem 0;
+  /* Фон берется из body, но на всякий случай прозрачный */
+  background-color: transparent; 
+  min-height: 100vh;
+  color: white;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5vw;
+}
+
+.mainTitle {
+  font-size: 50px;
+  font-weight: 400;
+  color: white;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+/* --- Стили для списка отзывов --- */
+.reviewsList {
+  display: grid;
+  /* Сетка: 2 колонки на больших экранах, как в dashboard */
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); 
+  gap: 20px;
+  margin-bottom: 70px;
+}
+
+.emptyMessage {
+  text-align: center;
+  color: #888;
+  font-size: 20px;
+  padding: 40px;
+  background: #1f1f1f;
+  border-radius: 2px;
+  grid-column: 1 / -1;
+}
+
+.reviewCard {
+  background: #1f1f1f;
+  padding: 30px;
+  border-radius: 2px; /* Острые углы как везде */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid transparent;
+}
+
+.reviewCard:hover {
+  transform: translateY(-2px);
+  /* Легкая подсветка акцентным цветом при наведении */
+  border-color: var(--accent); 
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #333;
+}
+
+.projectBadge {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #666;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.authorName {
+  font-size: 22px;
+  font-weight: 400;
+  color: white;
+  margin: 0;
+}
+
+.ratingBadge {
+  /* Стиль рейтинга под техно-дизайн */
+  color: var(--accent);
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 5px 10px;
+  border-radius: 2px;
+}
+
+.reviewText {
+  color: #aaaaaa;
+  line-height: 1.6;
+  font-size: 18px;
+  white-space: pre-wrap;
+  font-weight: 300;
+}
+
+/* --- Стили для формы (адаптированные под твой CSS) --- */
+.formWrapper {
+  background: #1f1f1f;
+  padding: 40px;
+  border-radius: 2px;
+  max-width: 800px;
+  /* margin: 0 auto; - если хочешь форму по центру */
+}
+
+.formTitle {
+  font-size: 34px;
+  font-weight: 300;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.formGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Большой отступ между полями */
+}
+
+/* Стилизация инпутов под твой сайт: без рамок, только подчеркивание */
+.select,
+.input,
+.textarea {
+  width: 100%;
+  padding: 15px 0; /* Отступ текста */
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #888888;
+  border-radius: 0;
+  color: #aaaaaa;
+  font-size: 18px;
+  font-family: inherit; /* Tektur */
+  outline: none;
+  transition: 0.2s;
+  appearance: none; /* Убираем стандартные стрелки селектов */
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Эффект фокуса как в твоем CSS */
+.select:focus,
+.input:focus,
+.textarea:focus {
+  border-bottom-color: white;
+  color: white;
+}
+
+/* Кастомные опции для селекта (чтобы фон не был белым) */
+.select option {
+  background-color: #1f1f1f;
+  color: white;
+  padding: 10px;
+}
+
+.submitButton {
+  /* Стиль .button.red из твоего CSS */
+  background-color: var(--accent);
+  color: white;
+  font-size: 20px;
+  padding: 15px 30px;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.submitButton:hover {
+  opacity: 0.9;
+}
+
+.submitButton:active {
+  transform: scale(0.98);
+}
+
+/* --- Адаптив (Media Queries) --- */
+@media (max-width: 900px) {
+  .reviewsList {
+    grid-template-columns: 1fr; /* Одна колонка на планшетах */
+  }
+  
+  .mainTitle {
+    font-size: 40px;
+  }
+  
+  .formWrapper {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .reviewCard {
+    padding: 20px;
+  }
+  
+  .authorName {
+    font-size: 18px;
+  }
+  
+  .ratingBadge {
+    font-size: 14px;
+    padding: 3px 8px;
+  }
+  
+  .mainTitle {
+    font-size: 32px;
+  }
+  
+  .submitButton {
+    width: 100%;
+  }
+}

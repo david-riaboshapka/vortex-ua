@@ -16,7 +16,8 @@ export default function LoginPage() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="form-auto" onSubmit={handleSubmit}>
+       <h1>Login</h1>
       <input name="email" type="email" placeholder="email" />
       <input name="password" type="password" placeholder="password" />
       <button type="submit">Login</button>

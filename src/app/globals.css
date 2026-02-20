@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Tektur:wdth,wght@75..100,400..900&display=swap');
 
+
 body {
   font-family: "Tektur", sans-serif;
   background: #020202f5;
@@ -20,9 +21,12 @@ body {
 }
 
 /* сам ползунок */
+.error {
+  color: var(--accent);
+}
+
 ::-webkit-scrollbar-thumb {
   background: var(--accent);
-
 }
 
 /* hover */
@@ -93,11 +97,16 @@ button.light {
   background-color: white;
 }
 
+.button.red,
 button.red {
   color: white;
   background-color: var(--accent);
   max-width: 272px;
   width: 100%;
+}
+
+.button {
+  padding: 15px;
 }
 
 button {
@@ -230,6 +239,10 @@ nav button {
 
 .list-link a:hover {
   color: var(--accent);
+}
+
+.button:hover {
+  color: black !important;
 }
 
 .animated-button-m {
@@ -606,14 +619,12 @@ form {
   display: flex;
   flex-direction: column;
   gap: 30px;
-
+  border-radius: 2px;
   padding: 30px;
   width: 100%;
   background: #1f1f1f;
   position: relative;
   transition: none;
-  border-radius: var(--basic-radius);
-
 }
 
 form h3 {
@@ -669,6 +680,74 @@ form input {
   transition: .2s;
 }
 
+/* Стили для контейнера-обертки */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  cursor: pointer;
+  user-select: none;
+  transition: .2s;
+}
+
+.checkbox-container:hover {
+  background: rgba(136, 136, 136, 0.05);
+}
+
+/* Скрываем стандартный чекбокс */
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Создаем кастомный квадрат */
+.checkmark {
+  height: 18px;
+  width: 18px;
+  border: 1px solid #888888;
+  margin-right: 12px;
+  position: relative;
+  transition: .2s;
+}
+
+/* Стиль при наведении */
+.checkbox-container:hover input~.checkmark {
+  border-color: #fff;
+}
+
+/* Когда чекбокс нажат — закрашиваем или меняем рамку */
+.checkbox-container input:checked~.checkmark {
+  background-color: #888888;
+  border-color: #888888;
+}
+
+/* Рисуем галочку внутри (скрыта по умолчанию) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Показываем галочку при нажатии */
+.checkbox-container input:checked~.checkmark:after {
+  display: block;
+}
+
+.checkbox-text {
+  color: #888888;
+  font-size: 14px;
+}
+
 form input:focus {
   border-bottom: 1px solid white;
   cursor: default;
@@ -721,6 +800,138 @@ form textarea {
 
 .burger-btn {
   display: none;
+}
+
+.cont-project-id {
+  display: flex;
+  gap: 50px;
+}
+
+.project-gallery {
+  width: 60%;
+}
+
+.project-left-info {
+  width: 40%;
+}
+
+.project-gallery img {
+  width: 100%;
+}
+
+.project-left-info span,
+.project-left-info a {
+  padding: 8px;
+  display: block;
+  text-align: center;
+  background: #1f1f1f;
+  border-radius: 2px;
+  margin-bottom: 15px;
+}
+
+.project-left-info h2 {
+  margin-bottom: 0px;
+}
+
+.feedback-section {
+  color: white;
+  padding: 8px;
+  display: block;
+  text-align: left;
+  background: #1f1f1f;
+  border-radius: 2px;
+  margin-top: 15px;
+}
+
+.feedback-section span {
+  padding: 0px;
+  text-align: left;
+  background: none;
+  border-radius: 0px;
+  margin-bottom: 0px;
+
+}
+
+.feedback-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.feedback-box {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.feedback-box small {
+  text-align: right;
+  width: 100%;
+  display: block;
+}
+
+
+
+/* Карточка отзыва */
+.item-review {
+  background: #1f1f1f;
+  border-radius: 2px;
+  padding: 40px 30px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+/* Имя автора */
+.item-review strong {
+  display: block;
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 15px;
+  letter-spacing: 0.5px;
+}
+
+/* Текст отзыва */
+.item-review p {
+  color: #aaaaaa;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  font-style: italic;
+  flex-grow: 1;
+  /* Растягивает текст, прижимая дату к низу */
+}
+
+/* Нижняя панель (Рейтинг и ID проекта) */
+.item-review small {
+  display: block;
+  color: #666666;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-top: 1px solid #222222;
+  padding-top: 15px;
+}
+
+
+@media(max-width: 1450px) {
+  .cont-project-id {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .project-gallery {
+    max-width: 100% !important;
+  }
+
+  .project-left-info {
+    width: 100%;
+  }
+  .swiper-button-prev, .swiper-button-next{
+    width: 30px !important;
+    height: 30px !important;
+  }
 }
 
 @media(max-width: 1400px) {
@@ -879,6 +1090,10 @@ form textarea {
 }
 
 @media(max-width: 1000px) {
+  .item-review {
+    padding: 25px;
+  }
+
   .planet-container {
     height: 200%;
   }
@@ -1034,6 +1249,10 @@ form textarea {
 }
 
 @media(max-width: 500px) {
+  .item-review {
+    padding: 15px;
+  }
+
   .close {
     top: 11px;
     right: 8px;
@@ -1062,7 +1281,7 @@ form textarea {
   }
 
   footer .container a {
-    font-size: 20px;
+    font-size: 16px;
   }
 
   footer .container {
@@ -1155,5 +1374,189 @@ form textarea {
 
   .mobile-menu {
     width: 100%;
+  }
+}
+
+
+
+
+
+/* ===== Dashboard ===== */
+.dashboard {
+  padding: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+}
+
+/* ===== User info ===== */
+.infoUse-box {
+  margin-bottom: 32px;
+}
+
+.infoUse-box h1 {
+  font-size: 32px;
+  font-weight: 300;
+}
+
+.userInfo {
+  margin-top: 8px;
+  display: flex;
+  gap: 16px;
+  color: #666;
+  font-size: 15px;
+}
+
+/* ===== Grid ===== */
+.gridDash {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 24px;
+}
+
+/* ===== Cards ===== */
+.cardDash {
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+}
+
+.cardDash h2 {
+  margin-bottom: 16px;
+  font-size: 22px;
+}
+
+/* ===== Empty state ===== */
+.empty {
+  color: #999;
+  font-style: italic;
+}
+
+/* ===== Requests list ===== */
+.requestsDash {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ===== Request card ===== */
+.requestDash {
+  border-radius: 2px;
+  padding: 14px;
+  background: #1f1f1f;
+  transition: all 0.25s ease;
+}
+
+.requestDash:hover {
+  transform: translateY(-2px);
+}
+
+/* ===== Request header ===== */
+.reqHeaderDash {
+  display: flex;
+  color: white;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.reqHeaderDash strong {
+  font-size: 16px;
+}
+
+/* ===== Status ===== */
+.statusDash {
+  background: #eef2ff;
+  color: #4338ca;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+/* ===== Description ===== */
+.descriptionDash {
+  color: #444;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+/* ===== Meta ===== */
+.metaDash {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #777;
+}
+
+.form-auto {}
+
+.form-auto h1 {
+  font-size: 50px;
+  font-weight: 500;
+}
+
+.form-auto {
+  margin-top: 10vh;
+  gap: 20px;
+  padding: 20px;
+  width: 30%;
+}
+/* projects portfolio project */
+iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+/* ===== Responsive ===== */
+@media(max-width: 1200px) {
+  .form-auto {
+    width: 50%;
+  }
+
+}
+@media(max-width: 1024px){
+ iframe {
+  position: static;
+  height: 50vh;
+} 
+}
+@media(max-width: 750px) {
+  .form-auto {
+    width: 80%;
+  }
+
+  .form-auto h1 {
+    font-size: 40px;
+
+  }
+
+}
+
+@media (max-width: 900px) {
+  .gridDash {
+    grid-template-columns: 1fr;
+  }
+
+  .metaDash {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .dashboard {
+    padding: 2vw;
+  }
+}
+
+@media(max-width: 550px) {
+  .userInfo {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+  }
+
+  .requestDash {
+    padding: 10px;
   }
 }

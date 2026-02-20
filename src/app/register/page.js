@@ -35,23 +35,18 @@ export default function RegisterPage() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h1>Регистрация</h1>
+        <form className="form-auto" onSubmit={handleSubmit}>
+            <h1>Register</h1>
 
             <input name="email" type="email" placeholder="email" />
-            <br />
 
             <input name="phone" type="phone" placeholder="phone" />
-            <br />
 
             <input name="password" type="password" placeholder="password" />
-            <br />
 
             <input name="first_name" placeholder="Имя" />
-            <br />
 
             <input name="last_name" placeholder="Фамилия" />
-            <br />
 
             {error && <p style={{ color: "red" }}>{error}</p>}
 

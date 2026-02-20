@@ -1,0 +1,116 @@
+.contentGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* ИНФО-БЛОК */
+.infoColumn {
+  width: 100%;
+}
+
+.title {
+  font-family: "Tektur", sans-serif;
+  font-size: clamp(28px, 8vw, 70px);
+  /* Шрифт подстраивается идеально */
+  line-height: 1.1;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--accent);
+  text-decoration: none;
+  font-family: monospace;
+  font-size: clamp(14px, 4vw, 18px);
+  padding: 12px 20px;
+  border: 1px solid rgba(255, 26, 26, 0.4);
+  background: rgba(255, 26, 26, 0.05);
+  margin-right: 25px;
+  margin-bottom: 25px;
+  transition: 0.3s;
+}
+
+.description {
+  font-size: clamp(15px, 4vw, 19px);
+  line-height: 1.5;
+  color: #999;
+  border-left: 3px solid var(--accent);
+  padding-left: 20px;
+  margin-bottom: 40px;
+  max-width: 900px;
+  /* Чтобы текст не растягивался в одну бесконечную строку */
+}
+
+/* СЛАЙДЕР */
+.galleryColumn {
+  width: 100%;
+}
+
+/* ОТЗЫВЫ */
+.reviewsContainer {
+  margin-top: 40px;
+}
+
+.reviewCard {
+  background: #111;
+  padding: 20px;
+  border-radius: 2px;
+  margin-bottom: 15px;
+  border: 1px solid #1f1f1f;
+}
+
+.reviewTop {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: white;
+}
+
+.containerInfo {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.reviewDate {
+  color: white;
+}
+
+
+
+/* --- MEDIA QUERIES ДЛЯ ДЕСКТОПА --- */
+@media (min-width: 1025px) {
+  .contentGrid {
+    flex-direction: row;
+    /* На больших экранах — в две колонки */
+    gap: 60px;
+  }
+
+  .infoColumn {
+    width: 45%;
+    /* Текст занимает чуть меньше половины */
+  }
+
+  .galleryColumn {
+    width: 55%;
+    position: sticky;
+    top: 50px;
+    /* Слайдер следует за скроллом */
+  }
+
+  .container {
+    padding: 0 1.5vw;
+    /* Возвращаемся к твоим глобальным отступам */
+  }
+}
+
+/* Убираем "дыры" на планшетах */
+/* @media (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    padding: 0 5vw;
+  }
+} */

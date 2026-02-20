@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import Requests from './components/Requests';
 import Arsenal from './components/Arsenal';
 import Header from './components/Header';
+import Reviews from './components/ReviewsSection';
 export default async function Home() {
 
   const { rows } = await db.query(
@@ -27,7 +28,7 @@ export default async function Home() {
 
   return (
     <>
-    <Header />
+      <Header />
       <main>
         <section>
           <div className="container">
@@ -43,8 +44,8 @@ export default async function Home() {
           </div>
         </section>
         <Projects_home />
-        <Arsenal/>
-        
+        <Arsenal />
+
 
         <section className="process">
           <div className='container'>
@@ -86,6 +87,7 @@ export default async function Home() {
           </div>
         </section>
         <Faq />
+        <Reviews />
         <Requests />
       </main>
 

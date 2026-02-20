@@ -5,23 +5,23 @@ export default function Post({ posts }) {
         <section>
             <h1>Посты</h1>
 
-            <form action={createPost}>
+            <form action={createPost} className='formRess'>
                 <input name="title" placeholder="Новый пост" required />
                 <button>Добавить</button>
             </form>
 
-            <ul>
+            <ul className='ulRess'>
                 {posts.map(post => (
-                    <li key={post.id} style={{ marginTop: 10 }}>
-                        <form action={updatePost} style={{ display: 'inline' }}>
+                    <li key={post.id} className='liRess'>
+                        <form action={updatePost} className='formRess'>
                             <input type="hidden" name="id" value={post.id} />
                             <input name="title" defaultValue={post.title} />
                             <button>💾</button>
                         </form>
 
                         <form
+                            className='formRess'
                             action={deletePost.bind(null, post.id)}
-                            style={{ display: 'inline', marginLeft: 5 }}
                         >
                             <button>❌</button>
                         </form>

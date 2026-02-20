@@ -13,10 +13,10 @@ export default function ProjectForm() {
 
   return (
     <form ref={formRef} action={handleAction}>
-      <input name="title" placeholder="название проекта" required />
-      <input name="description" placeholder="описание проекта" required />
-      <input name="budget" placeholder="бюджет" />
-      <button type="submit">Отправить</button>
+      <input name="title" placeholder="Project name" required />
+      <input name="description" placeholder="Project description" required />
+      <input name="budget" placeholder="Budget in euros" />
+      <button className='red' type="submit">Send</button>
     </form>
   );
 }

@@ -82,7 +82,27 @@ const Nav = () => {
                 <Link href="/about">About</Link>
                 <Link href="/reviews">Reviews</Link>
                 <Link href="/projects">Projects</Link>
-                {/* ... остальные ссылки основного меню ... */}
+                {session?.user.role === "admin" && (
+                    <Link href="/admin" onClick={handleClose}>admin</Link>
+                )}
+
+                {session && (
+                    <Link href="/dashboard" onClick={handleClose}>my page</Link>
+                )}
+
+                {!session && status !== "loading" && (
+                    <>
+                        <Link className="button red" href="/login" onClick={handleClose}>Войти</Link>
+                        <Link className="button red" href="/register" onClick={handleClose}>Регистрация</Link>
+                    </>
+                )}
+
+                {session && (
+                    <button onClick={() => { signOut({ callbackUrl: "/" }); handleClose(); }} className="animated-button-m">
+                        <span></span><span></span><span></span><span></span>
+                        Log out
+                    </button>
+                )}
             </div>
 
             <button
@@ -129,7 +149,7 @@ const Nav = () => {
                                 <Link href="/about" onClick={handleClose}>About</Link>
                                 <Link href="/reviews" onClick={handleClose}>Reviews</Link>
                                 <Link href="/projects" onClick={handleClose}>Projects</Link>
-                                
+
                                 {session?.user.role === "admin" && (
                                     <Link href="/admin" onClick={handleClose}>admin</Link>
                                 )}
