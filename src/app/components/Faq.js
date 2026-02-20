@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const faqData = [
     {
@@ -34,10 +34,12 @@ const faqData = [
 export default function Page() {
     const [activeIndex, setActiveIndex] = useState(null);
 
+    const contentRefs = useRef([]);
+
     const toggleFAQ = (index) => {
         setActiveIndex(activeIndex === index ? null : index);
     };
-    const [isOpen, setIsOpen] = useState(false);
+
     return (
         <section>
             <div className='container'>
@@ -45,7 +47,6 @@ export default function Page() {
                 <div className="faq-content">
                     {faqData.map((item, index) => {
                         const isOpen = activeIndex === index;
-                        const contentRef = useRef(null);
 
                         return (
                             <div className="faq-item" key={index} onClick={() => toggleFAQ(index)}>
@@ -65,23 +66,21 @@ export default function Page() {
                                     style={{ overflow: 'hidden' }}
                                     animate={{
                                         height: isOpen
-                                            ? contentRef.current?.scrollHeight
+                                            ? contentRefs.current[index]?.scrollHeight
                                             : 0,
                                         opacity: isOpen ? 1 : 0,
                                     }}
                                     transition={{ duration: 0.25, ease: 'easeInOut' }}
                                 >
-                                    <div ref={contentRef}>
+                                    <div ref={(el) => (contentRefs.current[index] = el)}>
                                         <p>{item.answer}</p>
                                     </div>
                                 </motion.div>
                             </div>
                         );
                     })}
-
                 </div>
             </div>
         </section>
-
     );
 }
