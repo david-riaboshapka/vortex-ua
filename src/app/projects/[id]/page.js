@@ -104,7 +104,7 @@ export default async function ProjectPage({ params }) {
                     <span className={styles.rating}>★ {rev.rating}/5</span>
                   </div>
                   <div className={styles.containerInfo}>
-                    <span className={styles.reviewText}>&quot;{rev.text}&quot;</span>
+                    <span className={styles.reviewText}>"{rev.text}"</span>
                     <small className={styles.reviewDate}>
                       {new Date(rev.created_at).toLocaleDateString()}
                     </small>

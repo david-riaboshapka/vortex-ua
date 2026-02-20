@@ -11,3 +11,4 @@ export const db =
 if (process.env.NODE_ENV !== 'production') {
   globalForDb.db = db;
 }
+console.log("DATABASE_URL set:", Boolean(process.env.DATABASE_URL));
