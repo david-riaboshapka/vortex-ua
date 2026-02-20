@@ -1,16 +1,14 @@
 import { defineConfig, globalIgnores } from "eslint/config";
-import nextVitals from "eslint-config-next/core-web-vitals.js"; // <-- добавлено .js
+import nextVitals from "eslint-config-next/core-web-vitals.js";
 
-const eslintConfig = defineConfig([
-  ...nextVitals,
-  // Override default ignores of eslint-config-next.
-  globalIgnores([
-    // Default ignores of eslint-config-next:
+const eslintConfig = defineConfig({
+  extends: [nextVitals], // <-- просто передаём как массив, не spread
+  ignorePatterns: [
     ".next/**",
     "out/**",
     "build/**",
     "next-env.d.ts",
-  ]),
-]);
+  ],
+});
 
 export default eslintConfig;
