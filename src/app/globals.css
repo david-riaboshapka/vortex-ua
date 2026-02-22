@@ -1128,7 +1128,7 @@ form textarea {
   }
 
   .mobile-menu-cont {
-    height: 100%;
+    height: 100dvh;
   }
 
   .mobile-menu-cont a {
