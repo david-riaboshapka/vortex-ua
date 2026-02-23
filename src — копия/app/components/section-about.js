@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function Projects_home() {
+export default function section_about() {
     const [activePerson, setActivePerson] = useState("vortex");
 
     return (
