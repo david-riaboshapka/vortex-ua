@@ -6,7 +6,10 @@ body {
   background: #020202f5;
   margin: 0;
   overflow-x: hidden;
-  user-select: none;
+  /* user-select: none; */
+
+  -webkit-tap-highlight-color: transparent;
+  text-rendering: optimizeLegibility;
 }
 
 
@@ -168,18 +171,22 @@ button {
 .planet-img {
   position: absolute;
   width: 70%;
+  will-change: transform;
+  transform: translateZ(0);
 }
-
-
 
 .line2 {
   width: 85%;
   animation: rotateOrbit 20s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .line3 {
   width: 100%;
   animation: rotateOrbitReverse 30s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .planet-line {
@@ -1520,7 +1527,7 @@ iframe {
  iframe {
   position: static;
   height: 50vh;
-} 
+}
 }
 @media(max-width: 750px) {
   .form-auto {

@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { db } from "@/lib/db";
 import { CreateReviews } from "../admin/reviews";
 import styles from "./Reviews.module.css";

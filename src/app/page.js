@@ -8,6 +8,7 @@ import Requests from './components/Requests';
 import Arsenal from './components/Arsenal';
 import Header from './components/Header';
 import Reviews from './components/ReviewsSection';
+export const dynamic = 'force-dynamic';
 export default async function Home() {
 
   const { rows } = await db.query(

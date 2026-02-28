@@ -124,6 +124,9 @@ export async function MakeMainImage(formData) {
 
     revalidatePath('/admin');
 }
+export async function CreateProjectVideo(id){
+    await db.query();
+}
 export async function DeleteProjectImage(id) {
     await db.query(
         `DELETE FROM portfolio_images WHERE id = $1`,

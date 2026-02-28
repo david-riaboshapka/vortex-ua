@@ -1,116 +1,195 @@
+/* Основной контейнер секции (наследует отступы из глобального CSS) */
+.section {
+  margin-top: 70px;
+  color: #ffffff;
+}
+
+.container {
+  padding: 0px 1.5vw;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
 .contentGrid {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 40px;
 }
 
-/* ИНФО-БЛОК */
+/* ЛЕВАЯ ЧАСТЬ: ИНФО */
 .infoColumn {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #1f1f1f;
+  padding: 40px;
+  border-radius: 2px;
 }
 
+/* Заголовок проекта */
 .title {
-  font-family: "Tektur", sans-serif;
-  font-size: clamp(28px, 8vw, 70px);
-  /* Шрифт подстраивается идеально */
+  font-size: 50px;
+  font-weight: 400;
+  margin: 0 0 15px 0;
   line-height: 1.1;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  color: #fff;
 }
 
+/* Ссылка на сайт */
 .link {
-  display: inline-flex;
-  align-items: center;
-  color: var(--accent);
+  display: inline-block;
+  font-size: 20px;
+  color: var(--accent, #ff1a1a);
   text-decoration: none;
-  font-family: monospace;
-  font-size: clamp(14px, 4vw, 18px);
-  padding: 12px 20px;
-  border: 1px solid rgba(255, 26, 26, 0.4);
-  background: rgba(255, 26, 26, 0.05);
-  margin-right: 25px;
-  margin-bottom: 25px;
-  transition: 0.3s;
+  margin-bottom: 20px;
+  transition: 0.2s ease-in-out;
+  width: fit-content;
 }
 
+.link:hover {
+  transform: translateX(5px);
+  color: #ffffff;
+}
+
+/* Дата создания */
+.date {
+  font-size: 14px;
+  color: #666666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 15px;
+}
+
+/* Описание проекта */
 .description {
-  font-size: clamp(15px, 4vw, 19px);
-  line-height: 1.5;
-  color: #999;
-  border-left: 3px solid var(--accent);
-  padding-left: 20px;
-  margin-bottom: 40px;
-  max-width: 900px;
-  /* Чтобы текст не растягивался в одну бесконечную строку */
-}
-
-/* СЛАЙДЕР */
-.galleryColumn {
-  width: 100%;
+  font-size: 20px;
+  color: #cccccc;
+  line-height: 1.6;
+  margin-bottom: 50px;
 }
 
 /* ОТЗЫВЫ */
 .reviewsContainer {
-  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
+.reviewsContainer h3 {
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+/* Карточка отзыва (адаптирована под твой .item-review) */
 .reviewCard {
-  background: #111;
-  padding: 20px;
+  background: #2a2a2a; /* Чуть светлее основного фона карточки для контраста */
   border-radius: 2px;
-  margin-bottom: 15px;
-  border: 1px solid #1f1f1f;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transition: transform 0.2s ease;
+}
+
+.reviewCard:hover {
+  transform: translateY(-2px);
 }
 
 .reviewTop {
   display: flex;
   justify-content: space-between;
-  gap: 10px;
-  color: white;
+  align-items: center;
+}
+
+.author {
+  font-size: 1.2rem;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.rating {
+  color: var(--accent, #ff1a1a);
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
 .containerInfo {
   display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.reviewText {
+  color: #aaaaaa;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-style: italic;
 }
 
 .reviewDate {
-  color: white;
+  color: #666666;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-top: 1px solid #333333;
+  padding-top: 15px;
 }
 
+/* ===== АДАПТИВНОСТЬ (по твоим брейкпоинтам) ===== */
 
-
-/* --- MEDIA QUERIES ДЛЯ ДЕСКТОПА --- */
-@media (min-width: 1025px) {
-  .contentGrid {
-    flex-direction: row;
-    /* На больших экранах — в две колонки */
-    gap: 60px;
+@media (max-width: 1200px) {
+  .section {
+    margin-top: 50px;
   }
-
+  .title {
+    font-size: 40px;
+  }
   .infoColumn {
-    width: 45%;
-    /* Текст занимает чуть меньше половины */
-  }
-
-  .galleryColumn {
-    width: 55%;
-    position: sticky;
-    top: 50px;
-    /* Слайдер следует за скроллом */
-  }
-
-  .container {
-    padding: 0 1.5vw;
-    /* Возвращаемся к твоим глобальным отступам */
+    padding: 30px;
   }
 }
 
-/* Убираем "дыры" на планшетах */
-/* @media (min-width: 768px) and (max-width: 1024px) {
-  .container {
-    padding: 0 5vw;
+@media (max-width: 800px) {
+  .title {
+    font-size: 33px;
   }
-} */
+  .description {
+    font-size: 16px;
+  }
+  .link {
+    font-size: 18px;
+  }
+  .reviewsContainer h3 {
+    font-size: 28px;
+  }
+  .reviewCard {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 500px) {
+  .section {
+    margin-top: 30px;
+  }
+  .infoColumn {
+    padding: 15px;
+  }
+  .title {
+    font-size: 28px;
+  }
+  .description {
+    font-size: 14px;
+  }
+  .reviewCard {
+    padding: 15px;
+  }
+  .author {
+    font-size: 1.1rem;
+  }
+  .reviewText {
+    font-size: 0.95rem;
+  }
+}

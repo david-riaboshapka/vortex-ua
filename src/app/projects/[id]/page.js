@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { db } from '@/lib/db';
 import Link from 'next/link'
 import Slider from '@/app/components/Slider';
@@ -96,7 +98,7 @@ export default async function ProjectPage({ params }) {
 
             {/* ОТЗЫВЫ */}
             <div className={styles.reviewsContainer}>
-              {reviews.length > 0 && <h3 style={{ fontSize: '24px', marginBottom: '10px' }}>Отзывы</h3>}
+              {reviews.length > 0 && <h3>Отзывы</h3>}
               {reviews.map(rev => (
                 <div key={rev.id} className={styles.reviewCard}>
                   <div className={styles.reviewTop}>
@@ -115,18 +117,15 @@ export default async function ProjectPage({ params }) {
           </div>
 
           {/* ПРАВАЯ ЧАСТЬ: СЛАЙДЕР */}
-          <div className={styles.galleryColumn}>
-            {/* тут было видео */}
-
+          {/* <div className={styles.galleryColumn}>
             <iframe
-              className="iframe"
+              className={styles.videoFrame}
               src="https://www.youtube.com/embed/jpqhTcEf1BY"
               title="YouTube video"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-
             />
-          </div>
+          </div> */}
 
         </div>
       </div>

@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { db } from '@/lib/db';
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
@@ -25,7 +27,7 @@ export default async function DashboardPage({ searchParams }) {
     const res = await db.query(`SELECT * FROM project_requests ORDER BY created_at DESC`);
     requests = res.rows;
   } else {
-    const res = await db.query(`SELECT * FROM project_requests WHERE user_id = $1 ORDER BY created_at DESC`, [session.user.id]);
+    const res = await db.query(`SELECT * FROM project_requests WHERE user_id =  ORDER BY created_at DESC`, [session.user.id]);
     requests = res.rows;
   }
 

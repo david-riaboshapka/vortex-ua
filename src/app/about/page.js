@@ -11,7 +11,7 @@ const About = () => {
   return (
     <>
       {/* ... existing code ... */}
-      <section className={styles.aboutVortex}>
+     <section className={`${styles.aboutVortex} container`}>
         {/* Темный верхний блок на всю ширину */}
         <div className={styles.a_top}>
           <div className="container">

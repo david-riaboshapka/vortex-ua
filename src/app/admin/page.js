@@ -12,9 +12,8 @@ export const revalidate = 0;
   export default async function AdminPage() {
     const session = await getServerSession(authOptions);
 
-    // 2. Проверяем роль. Если не админ — выкидываем на главную
     if (!session || session.user.role !== "admin") {
-        redirect("/"); // Серверный редирект
+        redirect("/"); 
     }
     const { rows: posts } = await db.query(
       'SELECT * FROM posts ORDER BY id DESC'
