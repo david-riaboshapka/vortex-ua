@@ -2,9 +2,15 @@ export const dynamic = 'force-dynamic';
 
 import { db } from "@/lib/db";
 import { CreateReviews } from "../admin/reviews";
+import { redirect } from "next/navigation";
+import Link from "next/link";
 import styles from "./Reviews.module.css";
 
-export default async function Reviews() {
+export default async function Reviews({ searchParams }) {
+  // ДОБАВЛЕН AWAIT: Ждем разрешения Promise перед чтением параметров
+  const params = await searchParams;
+  const isSuccess = params?.success === 'true';
+
   const { rows: projects } = await db.query(`
     SELECT id, title
     FROM portfolio_projects
@@ -25,26 +31,32 @@ export default async function Reviews() {
     ORDER BY r.id DESC
   `);
 
+  async function submitReview(formData) {
+    "use server";
+    
+    await CreateReviews(formData);
+    redirect("/reviews?success=true"); 
+  }
+
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.mainTitle}>Отзывы клиентов</h2>
+        <h2 className={styles.mainTitle}>Customer Reviews</h2>
 
         {/* СПИСОК ОТЗЫВОВ */}
         <div className={styles.reviewsList}>
           {reviews.length === 0 && (
             <p className={styles.emptyMessage}>
-              Пока нет опубликованных отзывов. Будьте первым!
+              There are no reviews published yet. Be the first!
             </p>
           )}
 
           {reviews.map((review) => (
             <div className={styles.reviewCard} key={review.id}>
-              {/* Шапка карточки: Проект, Имя, Рейтинг */}
               <div className={styles.cardHeader}>
                 <div>
                   <span className={styles.projectBadge}>
-                    Проект: {review.project_title}
+                    project: {review.project_title}
                   </span>
                   <h4 className={styles.authorName}>{review.author_name}</h4>
                 </div>
@@ -54,53 +66,69 @@ export default async function Reviews() {
                 </div>
               </div>
 
-              {/* Тело карточки */}
               <p className={styles.reviewText}>{review.text}</p>
             </div>
           ))}
         </div>
 
-        {/* ФОРМА ДОБАВЛЕНИЯ */}
+        {/* ФОРМА ИЛИ СООБЩЕНИЕ ОБ УСПЕХЕ */}
         <div className={styles.formWrapper}>
-          <form action={CreateReviews} className={styles.formGrid}>
-            <h3 className={styles.formTitle}>Оставить отзыв</h3>
+          {isSuccess ? (
+            <div style={{ textAlign: "center", padding: "2rem 0" }}>
+              <h3 className={styles.formTitle}>Thank you!</h3>
+              <p style={{ marginBottom: "1rem", color: "var(--text-color, #666)" }}>
+                Your review has been successfully submitted and sent for moderation.
+              </p>
+              
+              <Link 
+                href="/reviews" 
+                className={styles.submitButton} 
+                style={{ display: "inline-block", textDecoration: "none" }}
+              >
+                Write another review
+              </Link>
+            </div>
+          ) : (
+            <form action={submitReview} className={styles.formGrid}>
+              <h3 className={styles.formTitle}>Leave a review</h3>
 
-            <select name="project_id" required className={styles.select}>
-              <option value="">Выберите проект...</option>
-              {projects.map((project) => (
-                <option key={project.id} value={project.id}>
-                  {project.title}
-                </option>
-              ))}
-            </select>
+              <select name="project_id" required className={styles.select}>
+                <option value="">Select a project...</option>
+                {projects.map((project) => (
+                  <option key={project.id} value={project.id}>
+                    {project.title}
+                  </option>
+                ))}
+              </select>
 
-            <input
-              name="author_name"
-              placeholder="Ваше имя"
-              required
-              className={styles.input}
-            />
+              <input
+                name="author_name"
+                placeholder="Name"
+                required
+                className={styles.input}
+              />
 
-            <select name="raiting" required className={styles.select}>
-              <option value="">Оценка (1-5)</option>
-              <option value="5">5 — Отлично</option>
-              <option value="4">4 — Хорошо</option>
-              <option value="3">3 — Нормально</option>
-              <option value="2">2 — Плохо</option>
-              <option value="1">1 — Ужасно</option>
-            </select>
+              <select name="raiting" required className={styles.select}>
+                <option value="">Assessment (1-5)</option>
+                <option value="5">5 — Excellent</option>
+                <option value="4">4 — Good</option>
+                <option value="3">3 — Normal</option>
+                <option value="2">2 — Bad</option>
+                <option value="1">1 — Terrible</option>
+              </select>
 
-            <textarea
-              name="text"
-              placeholder="Расскажите подробнее о работе с нами..."
-              required
-              className={styles.textarea}
-            />
+              <textarea
+                name="text"
+                placeholder="Tell us more about working with us..."
+                required
+                className={styles.textarea}
+              />
 
-            <button type="submit" className={styles.submitButton}>
-              Отправить отзыв
-            </button>
-          </form>
+              <button type="submit" className={styles.submitButton}>
+                Send feedback
+              </button>
+            </form>
+          )}
         </div>
       </div>
     </section>
