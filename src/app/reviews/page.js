@@ -28,13 +28,13 @@ export default async function Reviews() {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.mainTitle}>Отзывы клиентов</h2>
+        <h2 className={styles.mainTitle}>Customer Reviews</h2>
 
         {/* СПИСОК ОТЗЫВОВ */}
         <div className={styles.reviewsList}>
           {reviews.length === 0 && (
             <p className={styles.emptyMessage}>
-              Пока нет опубликованных отзывов. Будьте первым!
+              There are no reviews published yet. Be the first!
             </p>
           )}
 
@@ -44,7 +44,7 @@ export default async function Reviews() {
               <div className={styles.cardHeader}>
                 <div>
                   <span className={styles.projectBadge}>
-                    Проект: {review.project_title}
+                    project: {review.project_title}
                   </span>
                   <h4 className={styles.authorName}>{review.author_name}</h4>
                 </div>
@@ -63,10 +63,10 @@ export default async function Reviews() {
         {/* ФОРМА ДОБАВЛЕНИЯ */}
         <div className={styles.formWrapper}>
           <form action={CreateReviews} className={styles.formGrid}>
-            <h3 className={styles.formTitle}>Оставить отзыв</h3>
+            <h3 className={styles.formTitle}>Leave a review</h3>
 
             <select name="project_id" required className={styles.select}>
-              <option value="">Выберите проект...</option>
+              <option value="">Select a project...</option>
               {projects.map((project) => (
                 <option key={project.id} value={project.id}>
                   {project.title}
@@ -82,23 +82,23 @@ export default async function Reviews() {
             />
 
             <select name="raiting" required className={styles.select}>
-              <option value="">Оценка (1-5)</option>
-              <option value="5">5 — Отлично</option>
-              <option value="4">4 — Хорошо</option>
-              <option value="3">3 — Нормально</option>
-              <option value="2">2 — Плохо</option>
-              <option value="1">1 — Ужасно</option>
+              <option value="">Assessment (1-5)</option>
+              <option value="5">5 — Excellent</option>
+              <option value="4">4 — Good</option>
+              <option value="3">3 — Normal</option>
+              <option value="2">2 — Bad</option>
+              <option value="1">1 — Terrible</option>
             </select>
 
             <textarea
               name="text"
-              placeholder="Расскажите подробнее о работе с нами..."
+              placeholder="Tell us more about working with us..."
               required
               className={styles.textarea}
             />
 
             <button type="submit" className={styles.submitButton}>
-              Отправить отзыв
+              Send feedback
             </button>
           </form>
         </div>
