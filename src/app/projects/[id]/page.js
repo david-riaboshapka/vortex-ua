@@ -53,7 +53,7 @@ export default async function ProjectPage({ params }) {
   );
 
   if (rows.length === 0) {
-    return <h1 className={styles.title}>Проект не найден</h1>;
+    return <h1 className={styles.title}>Project not found</h1>;
   }
 
   // ===== Собираем объект проекта =====
@@ -87,18 +87,18 @@ export default async function ProjectPage({ params }) {
             <h2 className={styles.title}>{project.title}</h2>
 
             <Link href={formatUrl(project.site_url)} target="_blank" className={styles.link}>
-              {project.site_url || "Перейти на сайт"} →
+              {project.site_url || "Go to website"} →
             </Link>
 
             <span className={styles.date}>
-              Дата создания: {new Date(project.created_at).toLocaleDateString()}
+              Creation date: {new Date(project.created_at).toLocaleDateString()}
             </span>
 
             <p className={styles.description}>{project.description}</p>
 
             {/* ОТЗЫВЫ */}
             <div className={styles.reviewsContainer}>
-              {reviews.length > 0 && <h3>Отзывы</h3>}
+              {reviews.length > 0 && <h3>Reviews</h3>}
               {reviews.map(rev => (
                 <div key={rev.id} className={styles.reviewCard}>
                   <div className={styles.reviewTop}>
