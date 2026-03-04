@@ -56,7 +56,7 @@ export default async function DashboardPage({ searchParams }) {
       <div className='gridDash'>
         <div className='cardDash'>
           <h2>{isAdmin ? 'All requests' : 'New application'}</h2>
-          {!isAdmin ? <ProjectForm /> : <p>Просмотр всех входящих заявок</p>}
+          {!isAdmin ? <ProjectForm /> : <p>View all incoming requests</p>}
         </div>
 
         <div className='cardDash'>
