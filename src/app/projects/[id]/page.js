@@ -91,7 +91,7 @@ export default async function ProjectPage({ params }) {
             </Link>
 
             <span className={styles.date}>
-              Creation date: {new Date(project.created_at).toLocaleDateString()}
+              The case is on display: {new Date(project.created_at).toLocaleDateString()}
             </span>
 
             <p className={styles.description}>{project.description}</p>
