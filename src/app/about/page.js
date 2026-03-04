@@ -92,7 +92,7 @@ const About = () => {
           </div>
         </div>
       </section>
-      <Section_about />
+      {/* <Section_about /> */}
     </>
   );
 };

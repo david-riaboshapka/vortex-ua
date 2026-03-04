@@ -44,7 +44,7 @@ export default async function Home() {
             </div>
           </div>
         </section>
-        <Section_about/>
+        {/* <Section_about/> */}
         <Arsenal />
 
 
