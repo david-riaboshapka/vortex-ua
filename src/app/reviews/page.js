@@ -76,7 +76,7 @@ export default async function Reviews() {
 
             <input
               name="author_name"
-              placeholder="Ваше имя"
+              placeholder="Name"
               required
               className={styles.input}
             />
