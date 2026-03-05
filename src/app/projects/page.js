@@ -21,7 +21,7 @@ export default async function Portfolio() {
   return (
     <section>
       <div className="container">
-        <h2>Портфолио</h2>
+        <h2>Portfolio</h2>
         <div className="project-cont">
           {rows.map(project => (
             <Link href={`/projects/${project.id}`} className="project-item" key={project.id}>
