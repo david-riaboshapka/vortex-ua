@@ -12,7 +12,7 @@ export const metadata = {
   title: 'Vortex Agency', // Название вкладки в браузере
   description: 'professional website development', // Описание для Google
   icons: {
-    icon: 'https://github.com/david-riaboshapka/vortex-ua/blob/main/public/images/favicon-16x16-1.jpg?raw=true', // Путь к вашей иконке
+    icon: 'https://us8w2gtarj9lxoe8.public.blob.vercel-storage.com/favicon-16x16-1.jpg', // Путь к вашей иконке
   },
 }
 export default function RootLayout({ children }) {
