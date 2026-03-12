@@ -9,9 +9,9 @@ const Header = () => {
     <header>
       <div className="container">
         <div className="planet-container" aria-hidden="true">
-          <img className="planet-img" src="https://vortex-agency.com.ua/wp-content/themes/vortex/assets/img/header-planet 1.png" alt="planet_alt" data-translate-alt="planet_alt" />
-          <img className="planet-line line2" src="https://vortex-agency.com.ua/wp-content/themes/vortex/assets/img/header-planet 2.png" alt="planet_line2_alt" data-translate-alt="planet_line2_alt" />
-          <img className="planet-line line3" src="https://vortex-agency.com.ua/wp-content/themes/vortex/assets/img/header-planet 3.png" alt="planet_line3_alt" data-translate-alt="planet_line3_alt" />
+          <img className="planet-img" src="https://us8w2gtarj9lxoe8.public.blob.vercel-storage.com/header-planet%201.png" alt="planet_alt" data-translate-alt="planet_alt" />
+          <img className="planet-line line2" src="https://us8w2gtarj9lxoe8.public.blob.vercel-storage.com/header-planet%202.png" alt="planet_line2_alt" data-translate-alt="planet_line2_alt" />
+          <img className="planet-line line3" src="https://us8w2gtarj9lxoe8.public.blob.vercel-storage.com/header-planet%203.png" alt="planet_line3_alt" data-translate-alt="planet_line3_alt" />
         </div>
         <div className="hero-cont">
           <span>[VORTEX AGENCY...]</span>
