@@ -53,7 +53,7 @@ export default function Page() {
                                     <h3 className="faq-item-h">{item.question}</h3>
 
                                     <motion.img
-                                        src="https://vortex-agency.com.ua/wp-content/themes/vortex/assets/img/arrow-faq.svg"
+                                        src="https://us8w2gtarj9lxoe8.public.blob.vercel-storage.com/Vector%209.png"
                                         alt=""
                                         animate={{ rotate: isOpen ? 95 : 0 }}
                                         transition={{ duration: 0.25 }}
