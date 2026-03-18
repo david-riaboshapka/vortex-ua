@@ -10,15 +10,15 @@ export default function Requests() {
                         <span data-translate="form_section_contact">Get in touch</span>
                         <h2 data-translate="form_section_title">Take the first step</h2>
                         <a href="tel:+380982820121" className="mobile-form-link form-link">
-                            <img src="https://vortex-agency.com.ua/wp-content/themes/vortex/assets/img/phone-icon.png" alt="Phone icon" data-translate-alt="form_section_phone_icon_alt" />
+                            <img src="https://us8w2gtarj9lxoe8.public.blob.vercel-storage.com/Phone.png" alt="Phone icon" data-translate-alt="form_section_phone_icon_alt" />
                             <span className="phone-number" data-translate="form_section_phone">+38 (098) 0120 241</span>
                         </a>
                         <a href="mailto:vortex.agency.web@gmail.com" className="email-form-link form-link">
-                            <img src="https://vortex-agency.com.ua/wp-content/themes/vortex/assets/img/Email.png" alt="Email icon" data-translate-alt="form_section_email_icon_alt" />
+                            <img src="https://us8w2gtarj9lxoe8.public.blob.vercel-storage.com/Mail.png" alt="Email icon" data-translate-alt="form_section_email_icon_alt" />
                             <span className="email" data-translate="form_section_email">vortex.agency.web@gmail.com</span>
                         </a>
                         <a href="" className="city-form-link form-link">
-                            <img src="https://vortex-agency.com.ua/wp-content/themes/vortex/assets/img/Location.png" alt="Location icon" data-translate-alt="form_section_location_icon_alt" />
+                            <img src="https://us8w2gtarj9lxoe8.public.blob.vercel-storage.com/Location.png" alt="Location icon" data-translate-alt="form_section_location_icon_alt" />
                             <span className="city" data-translate="form_section_city">Kyiv</span>
                         </a>
                         <button className="red" onClick={openModal}>
