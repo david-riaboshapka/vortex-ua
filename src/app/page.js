@@ -53,35 +53,35 @@ export default async function Home() {
             <h2 data-translate="process_title">How <span>We Work</span></h2>
             <div className="process-content">
               <div className="process-item">
-                <img src="https://vortex-agency.com.ua/wp-content/themes/vortex/assets/img/01.png" alt="" />
+                <img src="https://us8w2gtarj9lxoe8.public.blob.vercel-storage.com/01.png" alt="" />
                 <p data-translate="process_step_1">Researching needs and defining a clear brief</p>
               </div>
               <div className="process-item">
-                <img src="https://vortex-agency.com.ua/wp-content/themes/vortex/assets/img/02.png" alt="" />
+                <img src="https://us8w2gtarj9lxoe8.public.blob.vercel-storage.com/02.png" alt="" />
                 <p data-translate="process_step_2">Creating the concept and prototype</p>
               </div>
               <div className="process-item">
-                <img src="https://vortex-agency.com.ua/wp-content/themes/vortex/assets/img/03.png" alt="" />
+                <img src="https://us8w2gtarj9lxoe8.public.blob.vercel-storage.com/03.png" alt="" />
                 <p data-translate="process_step_3">Discussing details and making adjustments</p>
               </div>
               <div className="process-item">
-                <img src="https://vortex-agency.com.ua/wp-content/themes/vortex/assets/img/04.png" alt="" />
+                <img src="https://us8w2gtarj9lxoe8.public.blob.vercel-storage.com/04.png" alt="" />
                 <p data-translate="process_step_4">Developing design and functionality</p>
               </div>
               <div className="process-item">
-                <img src="https://vortex-agency.com.ua/wp-content/themes/vortex/assets/img/05.png" alt="" />
+                <img src="https://us8w2gtarj9lxoe8.public.blob.vercel-storage.com/05.png" alt="" />
                 <p data-translate="process_step_5">Testing, reviewing, and optimizing</p>
               </div>
               <div className="process-item">
-                <img src="https://vortex-agency.com.ua/wp-content/themes/vortex/assets/img/06.png" alt="" />
+                <img src="https://us8w2gtarj9lxoe8.public.blob.vercel-storage.com/06.png" alt="" />
                 <p data-translate="process_step_6">Presenting the final solution</p>
               </div>
               <div className="process-item">
-                <img src="https://vortex-agency.com.ua/wp-content/themes/vortex/assets/img/07.png" alt="" />
+                <img src="https://us8w2gtarj9lxoe8.public.blob.vercel-storage.com/07.png" alt="" />
                 <p data-translate="process_step_7">Project launch and technical support</p>
               </div>
               <div className="process-item">
-                <img src="https://vortex-agency.com.ua/wp-content/themes/vortex/assets/img/08.png" alt="" />
+                <img src="https://us8w2gtarj9lxoe8.public.blob.vercel-storage.com/08.png" alt="" />
                 <p data-translate="process_step_8">Delivering all materials and access</p>
               </div>
             </div>
