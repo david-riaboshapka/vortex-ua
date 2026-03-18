@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="cont-mess">
           <Link href='https://t.me/web_client0'>
             <img
-              src="https://vortex-agency.com.ua/wp-content/themes/vortex/assets/img/Telegram.svg"
+              src="https://us8w2gtarj9lxoe8.public.blob.vercel-storage.com/Telegram.png"
               alt="Telegram"
             />
           </Link>
