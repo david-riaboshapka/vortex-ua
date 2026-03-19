@@ -92,8 +92,8 @@ const Nav = () => {
 
                 {!session && status !== "loading" && (
                     <>
-                        <Link className="button red" href="/login" onClick={handleClose}>Войти</Link>
-                        <Link className="button red" href="/register" onClick={handleClose}>Регистрация</Link>
+                        <Link className="button red" href="/login" onClick={handleClose}>Login</Link>
+                        <Link className="button red" href="/register" onClick={handleClose}>Register</Link>
                     </>
                 )}
 
